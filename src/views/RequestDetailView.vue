@@ -65,9 +65,11 @@ async function run(action: () => Promise<void>) {
 const canStartReview = computed(() => {
   const r = request.value
   if (!r) return false
-  const viewPerm =
-    r.priority === 'high' ? 'view_high_priority_request' : 'view_standard_priority_request'
-  if (!can(viewPerm)) return false
+  const role = state.user?.role.code
+  if (role !== 'territory_manager' && role !== 'country_ops_manager') return false
+  const reviewPerm =
+    r.priority === 'high' ? 'review_high_priority_request' : 'review_standard_priority_request'
+  if (!can(reviewPerm)) return false
   if (r.status === 'escalated_to_territory_manager') {
     return state.user?.role.code === 'territory_manager'
   }

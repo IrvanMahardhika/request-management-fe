@@ -20,7 +20,7 @@ export function createMockUser(overrides: Partial<PublicUser> = {}): PublicUser 
     country: { id: 'country-1', name: 'Country A', code: 'CA' },
     territory: { id: 'territory-1', name: 'Territory East', countryId: 'country-1' },
     site: { id: 'site-1', name: 'Site Alpha', territoryId: 'territory-1' },
-    permissions: ['submit_standard_priority_request', 'view_standard_priority_request'],
+    permissions: ['submit_standard_priority_request', 'view_request_history'],
     ...overrides,
   }
 }

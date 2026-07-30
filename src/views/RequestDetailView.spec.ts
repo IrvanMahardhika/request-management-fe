@@ -49,11 +49,11 @@ describe('RequestDetailView', () => {
 
     const user = createMockUser({
       permissions: [
-        'view_standard_priority_request',
+        'review_standard_priority_request',
         'view_request_history',
         'approve_standard_priority_request',
       ],
-      role: { id: 'r1', code: 'site_manager', name: 'Site Manager', organizationScope: 'site' },
+      role: { id: 'r1', code: 'territory_manager', name: 'Territory Manager', organizationScope: 'territory' },
     })
     setSession('token', user)
     state.user = user
